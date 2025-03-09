@@ -451,7 +451,7 @@ class PokemonHuntingEngine:
             logger.debug(f"Wild Pokemon encountered: {pok_name}")
             for ball_name in POKEBALL_BUTTON_TEXT_MAP:
                 if pok_name in getattr(constants, f'{ball_name.upper()}_BALL', []):
-                    await asyncio.sleep(constants.COOLDOWN())
+                    await asyncio.sleep(1)
                     try:
                         await self._click_button(event=event, i=0, j=0)
                         break
@@ -476,7 +476,7 @@ class PokemonHuntingEngine:
 
             if wild_pokemon_hp_match:
                 wild_max_hp = int(wild_pokemon_hp_match.group(2))
-                if wild_max_hp <= 90:
+                if wild_max_hp <= 111:
                     logger.debug(f"{pok_name} is low level (HP: {wild_max_hp})")
                     await asyncio.sleep(constants.COOLDOWN())
                     await event.click(text="Poke Balls")
@@ -504,18 +504,17 @@ class PokemonHuntingEngine:
                 if wild_pokemon_hp_match:
                     wild_max_hp = int(wild_pokemon_hp_match.group(2))
                     wild_current_hp = int(wild_pokemon_hp_match.group(1))
-                    health_percentage = (wild_current_hp / wild_max_hp) * 100
-
+                    
                     logger.info(f"{pok_name} health: {wild_current_hp}/{wild_max_hp}")
                     try:
-                        if wild_current_hp > 90:
+                        if wild_current_hp > 111:
                             await asyncio.sleep(constants.COOLDOWN())
                             await event.click(0, 0)
                             for _ in range(5): 
                                 await asyncio.sleep(constants.COOLDOWN())
                                 await event.click(0, 0)
                                                              
-                        elif wild_current_hp <= 90:
+                        elif wild_current_hp <= 111:
                             await asyncio.sleep(constants.COOLDOWN())
                             await event.click(text="Poke Balls")
                             logger.info('clicked on btn poke balls')
