@@ -23,7 +23,8 @@ REGULAR_BALL = set([
         "Teddiursa", "Tentacool", "Tentacruel", "Thwackey", "Timburr", "Togepi", "Togetic",
         "Torracat", "Treecko", "Toxapex", "Trevenant", "Vikavolt", "Wartortle", "Wishiwashi", 
         "Wimpod", "Hakamo-o", "Jangmo-o", "Sirfetch'd", "Mime Jr.", "Mr. Mime",
-        "Sliggoo", "Voltorb", "Wyrdeer", "Zorua", "Zoroark", "Kleavor"
+        "Sliggoo", "Voltorb", "Wyrdeer", "Zorua", "Zoroark", "Kleavor",
+        "Sneasler", "Overqwil"
 ])
 
 REPEAT_BALL = set([
@@ -65,9 +66,9 @@ AFK_COMMAND_REGEX = r'^\.afk(?: |$)(.*)'  # Matches `.afk` or `.afk <message>`
 UNAFK_COMMAND_REGEX = r'^\.unafk$'  # Matches `.unafk`
 
 # Timing and Limits
-COOLDOWN = lambda: random.randint(3, 4)  # Random cooldown between 3 and 6 seconds
+COOLDOWN = lambda: random.randint(2, 3)  # Random cooldown between 3 and 6 seconds
 PERIODICALLY_GUESS_SECONDS = 20 # Guess cooldown
-PERIODICALLY_HUNT_SECONDS = 180  # Hunt cooldown 
+PERIODICALLY_HUNT_SECONDS = 160  # Hunt cooldown 
 HEXA_BOT_ID = 572621020  # ID of the Hexa bot
 
 # Auto-Battle Constants
